@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Students List</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.list-group {
+    list-style-type: none;
+    padding: 0;
+}
+.list-group-item {
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Students Registered for {{ course.name }}</h1>
+    <ul class="list-group">
+        {% for student in students %}
+        <li class="list-group-item">{{ student.name }}</li>
+        {% empty %}
+        <li class="list-group-item">No students registered for this course.</li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>

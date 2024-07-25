@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Registration</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.list-group {
+    list-style-type: none;
+    padding: 0;
+}
+.list-group-item {
+    margin-bottom: 10px;
+}
+.list-group-item a {
+    text-decoration: none;
+    color: #333;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Course Registration</h1>
+    <ul class="list-group">
+        {% for course in courses %}
+        <li class="list-group-item">
+            <a href="{% url 'students_list' course.course_id %}">
+                {{ course.name }} (ID: {{ course.course_id }})
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
